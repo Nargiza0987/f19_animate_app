@@ -1,19 +1,25 @@
+import 'package:f19_animate_app/models/suroo.dart';
 import 'package:flutter/material.dart';
 import '../continents/app_text.dart';
 
 class Continent {
   const Continent(
-      {required this.name, required this.icon, required this.color});
+      {required this.name,
+      required this.icon,
+      required this.color,
+      this.suroo});
 
   final String name;
   final String icon;
   final Color color;
+  final List<Suroo>? suroo;
 }
 
-const asia = Continent(
+final asia = Continent(
   name: AppText.asia,
   icon: "asia",
   color: Color(0xffFE8D7D),
+  suroo: asiaQuestions,
 );
 
 const europe = Continent(

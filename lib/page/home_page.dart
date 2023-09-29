@@ -47,12 +47,22 @@ class MyHomePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   // final item = continents[index];
                   return ContinensCard(
-                    item: continents[index],
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => TestPage()));
-                    },
-                  );
+                      item: continents[index],
+                      onTap: () {
+                        if (continents[index].suroo != null) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TestPage(
+                                        suroo: continents[index].suroo!,
+                                      )));
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content:
+                                Text('Кечиресиз бул континенттин суроосу жок'),
+                          ));
+                        }
+                      });
                 }),
           )
         ],
